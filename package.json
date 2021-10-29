@@ -1,0 +1,22 @@
+{
+  "name": "books",
+  "version": "1.0.0",
+  "description": "Store knowledge",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hoangtrungnamus/MyBooks.git"
+  },
+  "keywords": [
+    "MyBooks"
+  ],
+  "author": "NamUS",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hoangtrungnamus/MyBooks/issues"
+  },
+  "homepage": "https://github.com/hoangtrungnamus/MyBooks#readme"
+}
