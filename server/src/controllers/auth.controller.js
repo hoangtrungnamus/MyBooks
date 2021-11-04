@@ -21,6 +21,7 @@ class AuthController {
             else{
                 const newUser = new User({ username, password });
                 newUser.save();
+                return res.status(200).json({ success: true, message:`You are register succesfully!`});
             }
         }
         catch (err) {
@@ -39,7 +40,7 @@ class AuthController {
                 return res.status(400).json({success: false, message:`Username or password incorrect!`});
             }
             else{
-                return res.status(200).json({success: true, message:'You are logining!'});
+                return res.status(200).json({success: true, message:'You are logining!', userId: user._id});
             }
         } catch (error) {
             return res.status(500).json({success: false, message: error});

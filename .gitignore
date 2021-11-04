@@ -1,1 +1,8 @@
-/package.json
+/server/package.json
+/server/package-lock.json
+/client/package.json
+/client/package-lock.json
+/server/node_modules
+/client/node_modules
+/server/request.http
+/client/public/robots.txt

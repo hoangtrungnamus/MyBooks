@@ -1,0 +1,41 @@
+.App {
+  text-align: center;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+
+form{
+  width: 30%;
+}
+
+.auth{
+  background: url('./img/background.jpg') no-repeat center center /cover;
+  height: 100vh;
+}
+
+.inner-auth{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+body{
+  margin: 0;
+  padding: 0;
+  background: url('./img/background.jpg') no-repeat center;
+  background-size:  auto;
+  position: relative;
+}
+
+
+@media only screen and (max-width: 1024px){
+  form {
+    width: 60%;
+  }
+}
+
+.add-new{
+  width: 50%;
+}

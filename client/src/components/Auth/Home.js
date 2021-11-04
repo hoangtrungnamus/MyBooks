@@ -1,0 +1,9 @@
+import { Redirect } from 'react-router-dom';
+
+const Home = () => {
+    return (
+        <Redirect to='/login'></Redirect>
+    )
+}
+
+export default Home
