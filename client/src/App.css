@@ -24,8 +24,7 @@ form{
 body{
   margin: 0;
   padding: 0;
-  background: url('./img/background.jpg') no-repeat center;
-  background-size:  auto;
+  background-color: white;
   position: relative;
 }
 
@@ -38,4 +37,18 @@ body{
 
 .add-new{
   width: 50%;
+}
+
+.myMG{
+  margin-left: 30px;
+}
+
+@media only screen and (max-width:900px){
+  .myMG{
+    margin-left: 0;
+  }
+}
+
+.edit{
+  width: 100%;
 }

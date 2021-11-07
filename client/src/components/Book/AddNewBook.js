@@ -15,7 +15,7 @@ const AddNewBook = () => {
         textAlign: 'left',
         fontWeight: 'bold',
         display: 'block',
-        color: 'white'
+        color: 'black'
     }
 
     const { title, image } = createForm;
@@ -29,29 +29,31 @@ const AddNewBook = () => {
         const res = await createBook(createForm);
         if (res.status === 200) {
             alert('Your book is added!');
-            history.push('/layout');
+            history.push('/my-books');
         }
     }
 
     return (
-        <div className="inner-auth" style={{ height: '80vh' }}>
-            <Form className="add-new">
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label style={style} className="justify-content-start">Title</Form.Label>
-                    <Form.Control onChange={onChangeCreateForm} type="text" placeholder="Title of your book" name="title" value={title} />
-                    <Form.Text className="text-muted">
-                    </Form.Text>
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Label style={style}>Image of your book</Form.Label>
-                    <Form.Control onChange={onChangeCreateForm} type="text" placeholder="Link" name="image" value={image} />
-                </Form.Group>
-                <Button variant="primary" type="submit" onClick={create}>
-                    Submit
-                </Button>
-            </Form>
-        </div>
+        <>
+            <div className="inner-auth" style={{ height: '80vh' }}>
+                <Form className="add-new">
+                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <Form.Label style={style} className="justify-content-start">Title</Form.Label>
+                        <Form.Control onChange={onChangeCreateForm} type="text" placeholder="Title of your book" name="title" value={title} />
+                        <Form.Text className="text-muted">
+                        </Form.Text>
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="formBasicPassword">
+                        <Form.Label style={style}>Image of your book</Form.Label>
+                        <Form.Control onChange={onChangeCreateForm} type="text" placeholder="Link" name="image" value={image} />
+                    </Form.Group>
+                    <Button variant="primary" type="submit" onClick={create}>
+                        Submit
+                    </Button>
+                </Form>
+            </div>
+        </>
     )
 }
 
-export default AddNewBook
+export default AddNewBook;

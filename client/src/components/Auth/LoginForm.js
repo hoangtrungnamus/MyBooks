@@ -27,7 +27,8 @@ const LoginForm = () => {
         else {
             console.log('Login successfully!');
             setUserId(res.data.userId);
-            history.push('/layout');
+            localStorage.setItem('userId', res.data.userId);
+            history.push('/my-books');
         }
     }
 

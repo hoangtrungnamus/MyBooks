@@ -8,18 +8,20 @@ const Header = () => {
         textDecoration: "none"
     }
     return (
-        <div className="myBG">
+        <div>
             <Navbar bg="dark" expand="lg" style={{ fontWeight: "bold", color: "white" }} className="d-flex">
                 <Container fluid>
-                    <Link style={{ textDecoration: "none" }} to="/layout" exact><Navbar.Brand style={{ color: "white" }} className="mx-3">SÁCH CỦA TÔI</Navbar.Brand></Link>
+                    <Link style={removeUnderline} exact to="/"><Navbar.Brand style={{ color: "white" }} className="mx-3">HOME</Navbar.Brand></Link>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav" style={style} className="mx-3">
                         <Nav className="me-auto">
-                            <Link style={removeUnderline} to="/layout/add-new-book" exact><Nav style={{ color: "white" }} href="#link">THÊM</Nav>
+                            <Link style={removeUnderline} exact to="/my-books"><Nav style={{ color: "white" }}>MY BOOKS</Nav>
+                            </Link>
+                            <Link className="myMG" style={removeUnderline} exact to="/add-new-book"><Nav style={{ color: "white" }}>ADD BOOK</Nav>
                             </Link>
                         </Nav>
                         <Nav className="ms-auto">
-                            <Link style={removeUnderline} to="/login" exact> <Nav style={{ color: "white" }}>Logout</Nav>
+                            <Link style={removeUnderline} exact to="/login"> <Nav style={{ color: "white" }}>LOGOUT</Nav>
                             </Link>
                         </Nav>
 
