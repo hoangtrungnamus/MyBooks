@@ -6,4 +6,4 @@
 /client/node_modules
 /server/request.http
 /client/public/robots.txt
-/server/src/models/index.model.js
+dtb.js

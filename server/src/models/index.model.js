@@ -1,8 +1,9 @@
 const mongoose = require('mongoose');
+const dtb = require('../../../dtb');
 
 async function Connection(){
     try {
-        await mongoose.connect('mongodb+srv://nampanama:321546@cluster0.uuktt.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
+        await mongoose.connect(dtb)
         .then(console.log('DB is connected'))
         .catch((err) => console.log(err))
     } catch (error) {

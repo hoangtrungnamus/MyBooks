@@ -1,3 +1,5 @@
+const dtb = require('../../../dtb');
+
 const siteController = require('../controllers/site.controller');
 const authRoute = require('./auth.route');
 const bookRoute = require('./book.route');
