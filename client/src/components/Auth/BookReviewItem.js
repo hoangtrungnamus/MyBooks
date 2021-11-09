@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { Card, Button } from 'react-bootstrap';
 import { LoveContext } from './LoveContext';
+import Heart from 'react-animated-heart';
 
 const BookReviewsItem = (props) => {
     const { count, setCount } = useContext(LoveContext);
@@ -16,7 +17,7 @@ const BookReviewsItem = (props) => {
                 <hr />
                 <Card.Body>
                     <Card.Title style={{ fontSize: "1em" }}>{props.title}</Card.Title>
-                    <Button variant={love ? 'outline-danger' : 'danger'} onClick={loveHandler} >{love ? 'Loved' : 'Love'}</Button>
+                    <div className="mb-4 heart"><Heart isClick={love} onClick={loveHandler} ></Heart></div>
                 </Card.Body>
             </Card>
 

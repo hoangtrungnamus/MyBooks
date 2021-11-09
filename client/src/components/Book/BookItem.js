@@ -7,7 +7,7 @@ const BookItem = (props) => {
     return (
         <>
             <Card style={{height: "350px"}} className="imgHover my-2">
-                <Card.Img className="mt-2" variant="top" src={props.image} alt="Nhà giả kim" width="100px" height="200px" />
+                <Card.Img className="mt-2" variant="top" src={props.image} alt={props.title} width="100px" height="200px" />
                 <Card.Body>
                     <Card.Title>{props.title}</Card.Title>
                     <hr />

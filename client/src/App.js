@@ -20,7 +20,9 @@ function App() {
                 </Route>
                 <Route exact path='/my-books' render={props => <Book {...props} bookRoute='mybooks' />}></Route>
                 <Route exact path='/add-new-book' render={props => <Book {...props} bookRoute='add-new-book' />}></Route>
+                <Route exact path='/love' render={props => <Book {...props} bookRoute='love' />}></Route>
                 <Route exact path='/' render={props => <Book {...props} bookRoute='home' />}></Route>
+
               </Switch>
             </LoveContextProvider>
           </BookContexProvider>

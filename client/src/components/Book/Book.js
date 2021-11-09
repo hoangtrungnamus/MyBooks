@@ -5,6 +5,8 @@ import AddNewBook from './AddNewBook';
 import Home from "../Auth/Home";
 import { useHistory } from "react-router-dom";
 import Header from "../layout/Header";
+import Love from './Love';
+
 
 const Book = (props) => {
     const history = useHistory();
@@ -25,7 +27,8 @@ const Book = (props) => {
     let body = (
         (props.bookRoute === 'mybooks' && <Dashboard></Dashboard>) ||
         (props.bookRoute === 'add-new-book' && <AddNewBook></AddNewBook>) ||
-        (props.bookRoute === 'home' && <Home></Home>)
+        (props.bookRoute === 'love' && <Love></Love>) ||
+        (props.bookRoute === 'home' && <Home></Home>) 
     )
 
     return (

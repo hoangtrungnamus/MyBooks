@@ -26,7 +26,7 @@ const Home = (props) => {
                 <Row>
                     {booksreview.map((book, index) => {
                         return (
-                            <Col key={index} sm={12} md={4} xs={12} lg={2}>
+                            <Col key={index} xs={12} lg={2} md={6} sm={6}>
                                 <BookReviewsItem
                                     title={book.title}
                                     image={book.image}

@@ -21,8 +21,8 @@ const Header = () => {
                         <Nav className="me-auto">
                             <Link style={removeUnderline} exact to="/my-books"><Nav style={{ color: "white" }}>MY BOOKS</Nav>
                             </Link>
-                            <Link className="myMG" style={removeUnderline} exact to="/love">
-                                <Nav style={{ color: "white" }}>LOVED
+                            <Link className="myMG d-flex" style={removeUnderline} exact to="/love">
+                                <Nav style={{ color: "white", display: "inline"}}>LOVED
                                     <Badge pill className="mx-1" bg="danger">{count}
                                     </Badge></Nav>
                             </Link>
