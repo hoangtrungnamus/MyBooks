@@ -45,7 +45,7 @@ class BookController {
         try {
             const book = Books.findById({_id}).lean();
             if(book){
-                await Books.delete({_id});
+                await Books.deleteOne({_id});
                 return res.status(200).json({ success: true, message: 'This book is deleted'});
             }
             return res.status(400).json({ success: false, message: 'Failed to delete book'});

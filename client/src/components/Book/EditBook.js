@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react'
 import { Modal, Button, Form } from 'react-bootstrap';
 import eiditIcon from '../../img/pencil.svg';
-import {BookContext} from './BookContex'
+import {BookContext} from './BookContext'
 
 const EditBook = (props) => {
 
@@ -44,7 +44,7 @@ const EditBook = (props) => {
     }
     return (
         <>
-            <Button className="mx-4" variant="outline-primary" onClick={handleShow}>
+            <Button className="mx-2" variant="outline-primary" onClick={handleShow}>
                 <img src={eiditIcon} alt="edit icon" />
             </Button>
             <Modal show={show} onHide={handleClose}>

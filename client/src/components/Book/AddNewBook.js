@@ -1,6 +1,6 @@
 import { Form, Button } from 'react-bootstrap'
 import { useState, useContext } from 'react';
-import { BookContext } from "./BookContex";
+import { BookContext } from "./BookContext";
 import { useHistory } from 'react-router-dom';
 
 const AddNewBook = () => {
@@ -15,7 +15,7 @@ const AddNewBook = () => {
         textAlign: 'left',
         fontWeight: 'bold',
         display: 'block',
-        color: 'black'
+        color: 'white'
     }
 
     const { title, image } = createForm;
@@ -34,7 +34,7 @@ const AddNewBook = () => {
     }
 
     return (
-        <>
+        <div className="bg-add">
             <div className="inner-auth" style={{ height: '80vh' }}>
                 <Form className="add-new">
                     <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -47,12 +47,12 @@ const AddNewBook = () => {
                         <Form.Label style={style}>Image of your book</Form.Label>
                         <Form.Control onChange={onChangeCreateForm} type="text" placeholder="Link" name="image" value={image} />
                     </Form.Group>
-                    <Button variant="primary" type="submit" onClick={create}>
-                        Submit
+                    <Button variant="success" type="submit" onClick={create}>
+                        Add
                     </Button>
                 </Form>
             </div>
-        </>
+        </div>
     )
 }
 

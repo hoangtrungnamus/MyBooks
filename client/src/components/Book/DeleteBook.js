@@ -1,12 +1,11 @@
 import React, { useState, useContext } from 'react'
-import { Modal, Button } from 'react-bootstrap';
+import { Modal, Button, Alert } from 'react-bootstrap';
 import deleteIcon from '../../img/trash.svg';
-import {BookContext} from './BookContex';
+import {BookContext} from './BookContext';
 
 const DeleteBook = (props) => {
     const { deleteBook } = useContext(BookContext);
     const [show, setShow] = useState(false);
-
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
@@ -23,7 +22,7 @@ const DeleteBook = (props) => {
 
     return (
         <>
-            <Button className="mx-4"  variant="outline-danger" onClick={handleShow}>
+            <Button className="mx-2"  variant="outline-danger" onClick={handleShow}>
             <img src={deleteIcon} alt="edit icon" />
             </Button>
 
@@ -37,7 +36,7 @@ const DeleteBook = (props) => {
                     <Modal.Title style={{fontSize: '1.3em'}} >Are you sure you want to delete this book?</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    This book will be moved to the trash can
+                    <Alert variant="danger">This book will be deleted</Alert>
                 </Modal.Body>
                 <Modal.Footer>
                     <Button onClick={onSubmitDelete} variant="danger">Understood</Button>

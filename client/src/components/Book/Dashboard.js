@@ -10,7 +10,7 @@ const Dashboard = () => {
                 try {
                     axios.get(`http://localhost:4000/books/${localStorage.getItem('userId')}`)
                         .then((response) => {
-                            setResponseData(response.data.books)
+                            setResponseData(response.data.books);
                         })
                         .catch((err) => console.log(err))
                 } catch (error) {
@@ -22,12 +22,12 @@ const Dashboard = () => {
 
     return (
         <div>
-            <Container className="my-4" fluid >
+            <Container className="my-2" fluid >
                 <Row>
                     {responseData.map((response, index) => {
                         // xs < 768, 768 < sm < 992, 992 < md < 1200, lg > 1200
                         return (
-                            <Col key={index} xs={12} lg={3} md={6} sm={6}>
+                            <Col key={index} xs={12} lg={2} md={6} sm={6}>
                                 <BookItem key={index} title={response.title} image={response.image} id={response._id}></BookItem>
                             </Col>
                         );

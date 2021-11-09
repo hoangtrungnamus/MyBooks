@@ -1,6 +1,10 @@
-import { Navbar, Container, Nav } from 'react-bootstrap';
+import { Navbar, Container, Nav, Badge } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { LoveContext } from '../Auth/LoveContext';
+
 const Header = () => {
+    const {count} = useContext(LoveContext);
     let style = {
         textAlign: "left",
     }
@@ -16,6 +20,11 @@ const Header = () => {
                     <Navbar.Collapse id="basic-navbar-nav" style={style} className="mx-3">
                         <Nav className="me-auto">
                             <Link style={removeUnderline} exact to="/my-books"><Nav style={{ color: "white" }}>MY BOOKS</Nav>
+                            </Link>
+                            <Link className="myMG" style={removeUnderline} exact to="/love">
+                                <Nav style={{ color: "white" }}>LOVED
+                                    <Badge pill className="mx-1" bg="danger">{count}
+                                    </Badge></Nav>
                             </Link>
                             <Link className="myMG" style={removeUnderline} exact to="/add-new-book"><Nav style={{ color: "white" }}>ADD BOOK</Nav>
                             </Link>
