@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react'
 import { Modal, Button, Alert } from 'react-bootstrap';
 import deleteIcon from '../../img/trash.svg';
-import {BookContext} from './BookContext';
+import { BookContext } from "../../contexts/BookContext";
 
 const DeleteBook = (props) => {
     const { deleteBook } = useContext(BookContext);
@@ -14,7 +14,6 @@ const DeleteBook = (props) => {
     async function onSubmitDelete(){
         const res = await deleteBook(bookId);
         if(res.status === 200){
-            alert(res.data.message);
             handleClose();
             window.location.reload(true);
         }

@@ -3,8 +3,8 @@ import Auth from './components/Auth/Auth';
 import Book from './components/Book/Book';
 import './App.css';
 import AuthContextProvider from './contexts/AuthContext';
-import BookContexProvider from './components/Book/BookContext';
-import LoveContextProvider from './components/Auth/LoveContext';
+import BookContexProvider from './contexts/BookContext';
+import LoveContextProvider from './contexts/LoveContext';
 
 function App() {
   return (
@@ -22,7 +22,6 @@ function App() {
                 <Route exact path='/add-new-book' render={props => <Book {...props} bookRoute='add-new-book' />}></Route>
                 <Route exact path='/love' render={props => <Book {...props} bookRoute='love' />}></Route>
                 <Route exact path='/' render={props => <Book {...props} bookRoute='home' />}></Route>
-
               </Switch>
             </LoveContextProvider>
           </BookContexProvider>

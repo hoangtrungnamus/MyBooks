@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { Row, Col, Container } from 'react-bootstrap';
 import BookReviewsItem from './BookReviewItem';
 
-const Home = (props) => {
+const Home = () => {
     const [booksreview, setBookReview] = useState([]);
     useEffect(() => {
         const fetchData = () => {
@@ -30,6 +30,7 @@ const Home = (props) => {
                                 <BookReviewsItem
                                     title={book.title}
                                     image={book.image}
+                                    idBook={book._id}
                                 />
                             </Col>
                         );

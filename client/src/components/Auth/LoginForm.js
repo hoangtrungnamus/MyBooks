@@ -1,11 +1,10 @@
 import { Form, Button, Alert } from 'react-bootstrap';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useState, useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthContext';
 
 
 const LoginForm = () => {
-    const history = useHistory();
     const { connectToLogin, setUserId } = useContext(AuthContext);
     const [isCorrect, setIsCorrect] = useState(true);
     const [loginForm, setLoginForm] = useState({
@@ -28,7 +27,7 @@ const LoginForm = () => {
             console.log('Login successfully!');
             setUserId(res.data.userId);
             localStorage.setItem('userId', res.data.userId);
-            history.push('/my-books');
+            window.location.assign('/');
         }
     }
 

@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react'
 import { Modal, Button, Form } from 'react-bootstrap';
 import eiditIcon from '../../img/pencil.svg';
-import {BookContext} from './BookContext'
+import { BookContext } from "../../contexts/BookContext";
 
 const EditBook = (props) => {
 

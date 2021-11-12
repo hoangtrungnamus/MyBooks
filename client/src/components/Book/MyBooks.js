@@ -3,7 +3,7 @@ import axios from 'axios';
 import BookItem from './BookItem'
 import { Container, Row, Col } from 'react-bootstrap';
 
-const Dashboard = () => {
+const MyBooks = () => {
     const [responseData, setResponseData] = useState([]);
     useEffect(() => {
         const fetchData = () => {
@@ -38,4 +38,4 @@ const Dashboard = () => {
     )
 }
 
-export default Dashboard;
+export default MyBooks;

@@ -1,10 +1,11 @@
 const Books = require('../models/book.model');
+const LoveBook = require('../models/lovebooks.model');
 
 class BookController {
     async index(req, res, next) {
         const { userId } = { ...req.params };
         try {
-            const books = await Books.find({ userId: userId}).lean();
+            const books = await Books.find({ userId: userId }).lean();
             if (books) {
                 return res.status(200).json({ success: true, books });
             }
@@ -40,17 +41,63 @@ class BookController {
         }
     }
 
-    async delete(req, res, next){
-        const {_id} = {... req.body};
+    async delete(req, res, next) {
+        const { _id } = { ...req.body };
         try {
-            const book = Books.findById({_id}).lean();
-            if(book){
-                await Books.deleteOne({_id});
-                return res.status(200).json({ success: true, message: 'This book is deleted'});
+            const book = Books.findById({ _id }).lean();
+            if (book) {
+                await Books.deleteOne({ _id });
+                return res.status(200).json({ success: true, message: 'This book is deleted' });
             }
-            return res.status(400).json({ success: false, message: 'Failed to delete book'});
+            return res.status(400).json({ success: false, message: 'Failed to delete book' });
         } catch (error) {
             return error;
+        }
+    }
+
+    async love(req, res, next) {
+        const { userId } = { ...req.params };
+        try {
+            const lovebooks = await LoveBook.find({ userId: userId }).lean();
+            if (lovebooks) {
+                return res.status(200).json({ success: true, lovebooks });
+            }
+            return res.status(400).json({ success: false });
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    async addList(req, res, next) {
+        const {_id, userId, title, image } = { ...req.body };
+        try {
+            const newBook = new Books({userId, title, image});
+            await newBook.save();
+            await LoveBook.deleteOne({_id});
+            return res.status(200).json({ success: true})
+        } catch (error) {
+            return res.status(500).json({ error: error});
+        }
+    }
+
+    async addLove(req, res, next) {
+        const {idBook, userId, title, image } = { ...req.body };
+        try {
+            const newBook = new LoveBook({idBook, userId, title, image});
+            await newBook.save();
+            return res.status(200).json({ success: true})
+        } catch (error) {
+            return res.status(500).json({ error: error});
+        }
+    }
+
+    async removeLove(req, res, next) {
+        const {idBook } = { ...req.body };
+        try {
+            await LoveBook.deleteOne({idBook});
+            return res.status(200).json({ success: true})
+        } catch (error) {
+            return res.status(500).json({ error: error});
         }
     }
 

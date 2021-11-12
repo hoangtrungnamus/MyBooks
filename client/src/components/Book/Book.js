@@ -1,11 +1,11 @@
 import { AuthContext } from "../../contexts/AuthContext";
-import { useContext, useEffect, useState } from "react";
-import Dashboard from './Dashboard';
+import { useContext, useEffect, useState, Fragment } from "react";
+import MyBooks from './MyBooks';
 import AddNewBook from './AddNewBook';
-import Home from "../Auth/Home";
+import Home from "./Home";
 import { useHistory } from "react-router-dom";
 import Header from "../layout/Header";
-import Love from './Love';
+import Love from './LoveBooks';
 
 
 const Book = (props) => {
@@ -25,17 +25,17 @@ const Book = (props) => {
     }, [history, setIsLogin, userId]);
 
     let body = (
-        (props.bookRoute === 'mybooks' && <Dashboard></Dashboard>) ||
+        (props.bookRoute === 'mybooks' && <MyBooks></MyBooks>) ||
         (props.bookRoute === 'add-new-book' && <AddNewBook></AddNewBook>) ||
         (props.bookRoute === 'love' && <Love></Love>) ||
         (props.bookRoute === 'home' && <Home></Home>) 
     )
 
     return (
-        <div>
+        <Fragment>
             {isLogin && <Header/> }
             {isLogin && body}
-        </div>
+        </Fragment>
     )
 }
 
