@@ -49,7 +49,7 @@ body{
 }
 
 @media only screen and (max-width:900px){
-  .myMG{
+  a{
     margin-left: 0;
   }
 }
@@ -67,4 +67,26 @@ body{
   margin-top: 5px;
   background-color: white;
   border: none;
+}
+
+a {
+  font-size: 1.5em;
+  color: blue;
+  padding: 0px 16px;
+}
+
+.my-navbar{
+  list-style: none;
+  overflow: hidden;
+  background-color: purple;
+  margin: 0;
+  padding: 0;
+}
+
+a:hover{
+  text-decoration: underline;
+}
+
+.badge{
+  font-size: .3em;
 }

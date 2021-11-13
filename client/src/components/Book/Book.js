@@ -1,12 +1,11 @@
 import { AuthContext } from "../../contexts/AuthContext";
-import { useContext, useEffect, useState, Fragment } from "react";
+import { useContext, useEffect, useState } from "react";
 import MyBooks from './MyBooks';
 import AddNewBook from './AddNewBook';
 import Home from "./Home";
 import { useHistory } from "react-router-dom";
 import Header from "../layout/Header";
 import Love from './LoveBooks';
-
 
 const Book = (props) => {
     const history = useHistory();
@@ -32,10 +31,10 @@ const Book = (props) => {
     )
 
     return (
-        <Fragment>
+        <div className="bg-add">
             {isLogin && <Header/> }
             {isLogin && body}
-        </Fragment>
+        </div>
     )
 }
 

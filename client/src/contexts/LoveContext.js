@@ -41,7 +41,7 @@ const LoveContextProvider = (props) => {
 
     async function removeFromLoves(idBook) {
         try {
-            await axios.post(`http://localhost:4000/books/remove-love`, { idBook });
+            await axios.delete(`http://localhost:4000/books/remove-love/${idBook}`);
         } catch (error) {
             return error;
         }

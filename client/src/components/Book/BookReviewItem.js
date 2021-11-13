@@ -24,7 +24,7 @@ const BookReviewsItem = (props) => {
         if (!love) {
             addToLoveBooks({ idBook: props.idBook, userId: localStorage.getItem('userId'), title: props.title, image: props.image });
         }
-        else {
+        if(love===true) {
             removeFromLoves(props.idBook);
         }
         window.location.assign('/love');

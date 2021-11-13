@@ -22,7 +22,8 @@ const Home = () => {
     }, []);
 
     return (
-            <Container fluid className="my-2">
+            <div>
+                <Container fluid>
                 <Row>
                     {booksreview.map((book, index) => {
                         return (
@@ -37,6 +38,7 @@ const Home = () => {
                     })}
                 </Row>
             </Container>
+            </div>
     )
 }
 

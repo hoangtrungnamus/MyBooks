@@ -42,7 +42,7 @@ class BookController {
     }
 
     async delete(req, res, next) {
-        const { _id } = { ...req.body };
+        const { _id } = { ...req.params };
         try {
             const book = Books.findById({ _id }).lean();
             if (book) {
@@ -69,35 +69,36 @@ class BookController {
     }
 
     async addList(req, res, next) {
-        const {_id, userId, title, image } = { ...req.body };
+        const { _id, userId, title, image } = { ...req.body };
         try {
-            const newBook = new Books({userId, title, image});
+            const newBook = new Books({ userId, title, image });
             await newBook.save();
-            await LoveBook.deleteOne({_id});
-            return res.status(200).json({ success: true})
+            await LoveBook.deleteOne({ _id });
+            return res.status(200).json({ success: true })
         } catch (error) {
-            return res.status(500).json({ error: error});
+            return res.status(500).json({ error: error });
         }
     }
 
     async addLove(req, res, next) {
-        const {idBook, userId, title, image } = { ...req.body };
+        const { idBook, userId, title, image } = { ...req.body };
         try {
-            const newBook = new LoveBook({idBook, userId, title, image});
+            const newBook = new LoveBook({ idBook, userId, title, image });
             await newBook.save();
-            return res.status(200).json({ success: true})
+            return res.status(200).json({ success: true })
         } catch (error) {
-            return res.status(500).json({ error: error});
+            return res.status(500).json({ error: error });
         }
     }
 
     async removeLove(req, res, next) {
-        const {idBook } = { ...req.body };
+        const { idBook } = { ...req.params };
         try {
-            await LoveBook.deleteOne({idBook});
-            return res.status(200).json({ success: true})
+            await LoveBook.deleteOne({ idBook });
+            
+            return res.status(200).json({ success: true })
         } catch (error) {
-            return res.status(500).json({ error: error});
+            return res.status(500).json({ error: error });
         }
     }
 

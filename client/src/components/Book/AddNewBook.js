@@ -34,7 +34,7 @@ const AddNewBook = () => {
     }
 
     return (
-        <div className="bg-add">
+        <div>
             <div className="inner-auth" style={{ height: '80vh' }}>
                 <Form className="add-new">
                     <Form.Group className="mb-3" controlId="formBasicEmail">

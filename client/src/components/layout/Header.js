@@ -4,33 +4,40 @@ import { useContext } from 'react';
 import { LoveContext } from '../../contexts/LoveContext';
 
 const Header = () => {
-    const {count} = useContext(LoveContext);
+    const { count } = useContext(LoveContext);
     let style = {
         textAlign: "left",
     }
     let removeUnderline = {
         textDecoration: "none"
     }
+    let active = {
+        textDecoration: "none",
+        color: "white",
+        backgroundColor: "lightblue",
+        borderRadius: "15px",
+    }
+    const path = window.location.pathname;
+    console.log(path);
     return (
         <div>
             <Navbar bg="dark" expand="lg" style={{ fontWeight: "bold", color: "white" }} className="d-flex">
                 <Container fluid>
-                    <Link style={removeUnderline} to="/"><Navbar.Brand style={{ color: "white" }} className="mx-3">HOME</Navbar.Brand></Link>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav" style={style} className="mx-3">
-                        <Nav className="me-auto">
-                            <Link style={removeUnderline} to="/my-books"><Nav style={{ color: "white" }}>MY BOOKS</Nav>
-                            </Link>
-                            <Link className="myMG d-flex" style={removeUnderline} to="/love">
-                                <Nav style={{ color: "white", display: "inline"}}>LOVED
-                                    <Badge pill className="mx-1" bg="danger">{count}
-                                    </Badge></Nav>
-                            </Link>
-                            <Link className="myMG" style={removeUnderline} to="/add-new-book"><Nav style={{ color: "white" }}>ADD BOOK</Nav>
-                            </Link>
-                        </Nav>
+                        <Link style={removeUnderline} to="/">HOME</Link>
                         <Nav className="ms-auto">
-                            <Link style={removeUnderline} to="/login"> <Nav style={{ color: "white" }}>LOGOUT</Nav>
+                            <Link style={path === "/my-books" ? active : removeUnderline} to="/my-books"><Nav>MY BOOKS</Nav>
+                            </Link>
+
+                                <Link style={path === "/love" ? active : removeUnderline} to="/love">LOVED
+                                <Badge style={{fontSize:".5em"}} className="mx-1" pill bg="danger">{count}
+                                </Badge>
+                                </Link>
+                                
+                            <Link style={path === "/add-new-book" ? active : removeUnderline} to="/add-new-book"><Nav>ADD BOOK</Nav>
+                            </Link>
+                            <Link style={removeUnderline} to="/login"> <Nav>LOGOUT</Nav>
                             </Link>
                         </Nav>
 

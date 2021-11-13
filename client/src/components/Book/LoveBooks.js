@@ -6,7 +6,7 @@ import LoveBookItem from './LoveBookItem';
 const Love = () => {
     const { loveBooks } = useContext(LoveContext);
     return (
-        <Container fluid className="my-2">
+        <Container fluid>
             <Row>
                 {
                     loveBooks.map((book, index) => {
