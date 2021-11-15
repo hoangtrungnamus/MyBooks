@@ -1,7 +1,7 @@
 // cors
 // import modules
 
-//const cors = require('cors');
+const cors = require('cors');
 const express = require('express');
 const routes = require('./src/routes/index.route');
 require("dotenv").config();
@@ -25,7 +25,7 @@ Connection();
 const app = express();
 // global variables
 const PORT = process.env.PORT || 4000;
-//app.use(cors());
+app.use(cors());
 
 app.use(express.json());
 
