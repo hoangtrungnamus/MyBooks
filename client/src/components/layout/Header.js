@@ -18,7 +18,6 @@ const Header = () => {
         borderRadius: "15px",
     }
     const path = window.location.pathname;
-    console.log(path);
     return (
         <div>
             <Navbar bg="dark" expand="lg" style={{ fontWeight: "bold", color: "white" }} className="d-flex">

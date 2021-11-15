@@ -64,7 +64,7 @@ class BookController {
             }
             return res.status(400).json({ success: false });
         } catch (error) {
-            console.log(error);
+            return error;
         }
     }
 
