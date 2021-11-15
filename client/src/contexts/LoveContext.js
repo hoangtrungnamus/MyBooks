@@ -1,5 +1,6 @@
 import { createContext, useState, useEffect } from 'react';
 import axios from 'axios';
+import { apiURL } from '../constant';
 
 export const LoveContext = createContext();
 
@@ -11,7 +12,7 @@ const LoveContextProvider = (props) => {
     useEffect(() => {
         const getLoveBooks = () => {
             try {
-                axios.get(`http://localhost:4000/books/love/${localStorage.getItem('userId')}`)
+                axios.get(`${apiURL}/books/love/${localStorage.getItem('userId')}`)
                     .then(res => { setLoveBooks(res.data.lovebooks); setCount(res.data.lovebooks.length) })
                     .catch(err => console.log(err))
             } catch (error) {
@@ -23,7 +24,7 @@ const LoveContextProvider = (props) => {
 
     async function addToMyBooks(book) {
         try {
-            const res = await axios.post(`http://localhost:4000/books/add`, book);
+            const res = await axios.post(`${apiURL}/books/add`, book);
             return res;
         } catch (error) {
             return error;
@@ -32,7 +33,7 @@ const LoveContextProvider = (props) => {
 
     async function addToLoveBooks(book) {
         try {
-            const res = await axios.post(`http://localhost:4000/books/add-love`, book);
+            const res = await axios.post(`${apiURL}/books/add-love`, book);
             return res;
         } catch (error) {
             return error;
@@ -41,7 +42,7 @@ const LoveContextProvider = (props) => {
 
     async function removeFromLoves(idBook) {
         try {
-            await axios.delete(`http://localhost:4000/books/remove-love/${idBook}`);
+            await axios.delete(`${apiURL}/books/remove-love/${idBook}`);
         } catch (error) {
             return error;
         }

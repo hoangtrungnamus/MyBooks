@@ -2,20 +2,20 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import BookItem from './BookItem'
 import { Container, Row, Col } from 'react-bootstrap';
-
+import { apiURL } from '../../constant';
 const MyBooks = () => {
     const [responseData, setResponseData] = useState([]);
     useEffect(() => {
         const fetchData = () => {
-                try {
-                    axios.get(`http://localhost:4000/books/${localStorage.getItem('userId')}`)
-                        .then((response) => {
-                            setResponseData(response.data.books);
-                        })
-                        .catch((err) => console.log(err))
-                } catch (error) {
-                    console.log(error);
-                }
+            try {
+                axios.get(`${apiURL}/${localStorage.getItem('userId')}`)
+                    .then((response) => {
+                        setResponseData(response.data.books);
+                    })
+                    .catch((err) => console.log(err))
+            } catch (error) {
+                console.log(error);
+            }
         }
         fetchData()
     }, []);

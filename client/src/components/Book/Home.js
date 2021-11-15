@@ -2,13 +2,14 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Row, Col, Container } from 'react-bootstrap';
 import BookReviewsItem from './BookReviewItem';
+import { apiURL } from '../../constant';
 
 const Home = () => {
     const [booksreview, setBookReview] = useState([]);
     useEffect(() => {
         const fetchData = () => {
             try {
-                axios.get(`http://localhost:4000`)
+                axios.get(`${apiURL}`)
                     .then(response => {
                         setBookReview(response.data.booksreview);
                     })
@@ -22,8 +23,8 @@ const Home = () => {
     }, []);
 
     return (
-            <div>
-                <Container fluid>
+        <div>
+            <Container fluid>
                 <Row>
                     {booksreview.map((book, index) => {
                         return (
@@ -38,7 +39,7 @@ const Home = () => {
                     })}
                 </Row>
             </Container>
-            </div>
+        </div>
     )
 }
 

@@ -1,5 +1,7 @@
 import { createContext } from "react";
 import axios from "axios";
+import { apiURL } from '../constant';
+
 
 export const BookContext = createContext();
 const BookContexProvider = (props) => {
@@ -7,7 +9,7 @@ const BookContexProvider = (props) => {
 
     async function createBook(createForm){
         try{
-            const addNewBook = await axios.post('http://localhost:4000/books/create', createForm);
+            const addNewBook = await axios.post(`${apiURL}/books/create`, createForm);
             return addNewBook;
         }
         catch(err){
@@ -17,7 +19,7 @@ const BookContexProvider = (props) => {
 
     async function editBook(formEdit){
         try {
-            const edit = await axios.put('http://localhost:4000/books/edit', formEdit);
+            const edit = await axios.put(`${apiURL}/books/edit`, formEdit);
             return edit;
         } catch (error) {
             return error;
@@ -26,7 +28,7 @@ const BookContexProvider = (props) => {
 
     async function deleteBook(_id){
         try {
-            const bookDelete = await axios.delete(`http://localhost:4000/books/delete/${_id}`);
+            const bookDelete = await axios.delete(`${apiURL}/books/delete/${_id}`);
             return bookDelete;
         } catch (error) {
             return error;
