@@ -1,14 +1,30 @@
 // cors
 // import modules
+
 const cors = require('cors');
 const express = require('express');
 const routes = require('./src/routes/index.route');
-const connect = require('./src/models/index.model');
+require("dotenv").config();
+
+const mongoose = require('mongoose');
+
+async function Connection(){
+    try {
+        await mongoose.connect(`mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.uuktt.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`)
+        .then(console.log('DB is connected'))
+        .catch((err) => console.log(err))
+    } catch (error) {
+        return error;
+    }
+}
+
+Connection();
+
+
 // use module
 const app = express();
-connect();
 // global variables
-const PORT = 4000;
+const PORT = process.env.PORT || 4000;
 app.use(cors());
 
 app.use(express.json());
