@@ -28,5 +28,8 @@
     "mongoose": "^6.0.12",
     "mongoose-delete": "^0.5.4",
     "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "http-proxy-middleware": "^2.0.1"
   }
 }
