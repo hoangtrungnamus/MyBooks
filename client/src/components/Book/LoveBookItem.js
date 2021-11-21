@@ -7,7 +7,7 @@ const LoveBookItem = (props) => {
     async function add(event) {
         event.preventDefault();
         try {
-            const res = await addToMyBooks({ _id: props.idBook, userId: props.userId, title: props.title, image: props.image });
+            const res = await addToMyBooks({ _id: props.idBook, title: props.title, image: props.image });
             if (res.status === 200) {
                 alert("Added");
                 setCount(count - 1);

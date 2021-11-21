@@ -90,3 +90,13 @@ a:hover{
 .badge{
   font-size: .3em;
 }
+
+
+a{
+  transition: all 0.5;
+}
+
+a:hover{
+  color: #ffffff;
+  text-decoration: underline;
+}

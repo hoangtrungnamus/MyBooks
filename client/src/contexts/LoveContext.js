@@ -1,26 +1,14 @@
-import { createContext, useState, useEffect } from 'react';
+import { createContext, useState } from 'react';
 import axios from 'axios';
-import { apiURL } from '../constant';
+import {apiURL} from '../constant';
 
 export const LoveContext = createContext();
 
 const LoveContextProvider = (props) => {
-
     const [count, setCount] = useState(0);
     const [loveBooks, setLoveBooks] = useState([]);
 
-    useEffect(() => {
-        const getLoveBooks = () => {
-            try {
-                axios.get(`${apiURL}/books/love/${localStorage.getItem('userId')}`)
-                    .then(res => { setLoveBooks(res.data.lovebooks); setCount(res.data.lovebooks.length) })
-                    .catch(err => console.log(err))
-            } catch (error) {
-                return error;
-            }
-        }
-        getLoveBooks();
-    }, [])
+    
 
     async function addToMyBooks(book) {
         try {
@@ -55,6 +43,7 @@ const LoveContextProvider = (props) => {
         addToMyBooks,
         addToLoveBooks,
         removeFromLoves,
+        setLoveBooks
     }
     return (
         <LoveContext.Provider value={LoveContextData} >

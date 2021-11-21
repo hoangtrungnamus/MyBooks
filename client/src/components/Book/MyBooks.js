@@ -8,7 +8,7 @@ const MyBooks = () => {
     useEffect(() => {
         const fetchData = () => {
             try {
-                axios.get(`${apiURL}/books/${localStorage.getItem('userId')}`)
+                axios.get(`${apiURL}/books`)
                     .then((response) => {
                         setResponseData(response.data.books);
                     })
