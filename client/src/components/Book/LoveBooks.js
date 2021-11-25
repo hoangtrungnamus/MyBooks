@@ -1,33 +1,10 @@
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import { LoveContext } from '../../contexts/LoveContext';
-import { AuthContext } from '../../contexts/AuthContext';
 import { Container, Row, Col } from 'react-bootstrap';
 import LoveBookItem from './LoveBookItem';
-import { apiURL } from '../../constant';
-import axios from 'axios';
-
-
 
 const Love = () => {
-    const { isAuthenticated } = useContext(AuthContext);
-    const { setCount, setLoveBooks, loveBooks } = useContext(LoveContext);
-    
-
-    useEffect(() => {
-        const getLoveBooks = () => {
-            try {
-                if (isAuthenticated) {
-                    axios.get(`${apiURL}/books/love`)
-                    .then(res => {setCount(res.data.lovebooks.length); setLoveBooks(res.data.lovebooks)})
-                    .catch(err=>console.log(err))
-                }
-            } catch (error) {
-                return error;
-            }
-        }
-        getLoveBooks();
-    }, [setLoveBooks, setCount, isAuthenticated]);
-
+    const { loveBooks } = useContext(LoveContext);
     return (
         <Container fluid>
             <Row>
@@ -38,6 +15,7 @@ const Love = () => {
                                 <LoveBookItem
                                     title={book.title}
                                     image={book.image}
+                                    userId={book.userId}
                                     idBook={book._id}
                                 />
                             </Col>

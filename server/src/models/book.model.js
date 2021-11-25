@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 const mongoose_delete = require('mongoose-delete');
 
 const BookSchema = new Schema({
-    userId: {type: Schema.Types.ObjectId},
+    userId: {type: String},
     title: {type: String, unique: false},
     image: {type: String},
     createdAt: {type: Date, default: Date.now()}

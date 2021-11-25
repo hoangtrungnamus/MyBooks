@@ -5,7 +5,7 @@ import { AuthContext } from '../../contexts/AuthContext';
 
 
 const LoginForm = () => {
-    const { connectToLogin } = useContext(AuthContext);
+    const { connectToLogin, setUserId } = useContext(AuthContext);
     const [isCorrect, setIsCorrect] = useState(true);
     const [loginForm, setLoginForm] = useState({
         username: '',
@@ -25,7 +25,8 @@ const LoginForm = () => {
         }
         else {
             console.log('Login successfully!');
-            localStorage.setItem('accessToken', res.data.accessToken);
+            setUserId(res.data.userId);
+            localStorage.setItem('userId', res.data.userId);
             window.location.assign('/');
         }
     }

@@ -9,8 +9,7 @@ const Header = () => {
         textAlign: "left",
     }
     let removeUnderline = {
-        textDecoration: "none",
-
+        textDecoration: "none"
     }
     let active = {
         textDecoration: "none",
@@ -18,7 +17,6 @@ const Header = () => {
         backgroundColor: "lightblue",
         borderRadius: "15px",
     }
-
     const path = window.location.pathname;
     return (
         <div>
@@ -31,11 +29,11 @@ const Header = () => {
                             <Link style={path === "/my-books" ? active : removeUnderline} to="/my-books"><Nav>MY BOOKS</Nav>
                             </Link>
 
-                            <Link style={path === "/love" ? active : removeUnderline} to="/love">LOVED
-                                <Badge style={{ fontSize: ".5em" }} className="mx-1" pill bg="danger">{count}
+                                <Link style={path === "/love" ? active : removeUnderline} to="/love">LOVED
+                                <Badge style={{fontSize:".5em"}} className="mx-1" pill bg="danger">{count}
                                 </Badge>
-                            </Link>
-
+                                </Link>
+                                
                             <Link style={path === "/add-new-book" ? active : removeUnderline} to="/add-new-book"><Nav>ADD BOOK</Nav>
                             </Link>
                             <Link style={removeUnderline} to="/login"> <Nav>LOGOUT</Nav>

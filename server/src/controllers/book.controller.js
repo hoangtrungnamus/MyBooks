@@ -3,9 +3,9 @@ const LoveBook = require('../models/lovebooks.model');
 
 class BookController {
     async index(req, res, next) {
-        const userId = req.userId.concat();
+        const { userId } = { ...req.params };
         try {
-            const books = await Books.find({ userId }).lean();
+            const books = await Books.find({ userId: userId }).lean();
             if (books) {
                 return res.status(200).json({ success: true, books });
             }
@@ -14,10 +14,8 @@ class BookController {
         }
     }
 
-    // Book of user
     async create(req, res, next) {
-        const { title, image } = { ...req.body };
-        const userId = req.userId.concat('');
+        const { title, image, userId } = { ...req.body };
         try {
             if (!image || !title) {
                 return res.status(400).json({ success: false, message: `You need to provide a title and image of your book` });
@@ -58,9 +56,9 @@ class BookController {
     }
 
     async love(req, res, next) {
-        const  userId = req.userId.concat('');
+        const { userId } = { ...req.params };
         try {
-            const lovebooks = await LoveBook.find({ userId }).lean();
+            const lovebooks = await LoveBook.find({ userId: userId }).lean();
             if (lovebooks) {
                 return res.status(200).json({ success: true, lovebooks });
             }
@@ -69,7 +67,6 @@ class BookController {
             return error;
         }
     }
-
 
     async addList(req, res, next) {
         const { _id, userId, title, image } = { ...req.body };
@@ -84,8 +81,7 @@ class BookController {
     }
 
     async addLove(req, res, next) {
-        const { idBook, title, image } = { ...req.body };
-        const userId = req.userId.concat();
+        const { idBook, userId, title, image } = { ...req.body };
         try {
             const newBook = new LoveBook({ idBook, userId, title, image });
             await newBook.save();

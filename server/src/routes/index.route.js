@@ -4,7 +4,7 @@ const authRoute = require('./auth.route');
 const bookRoute = require('./book.route');
 function route(app){
     // for single page
-    app.get('/', siteController.index)
+    app.get('/', siteController.index);
     // for user
     app.use('/users', authRoute);
     // for books

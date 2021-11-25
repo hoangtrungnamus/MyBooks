@@ -37,7 +37,9 @@ const RegisterForm = () => {
         }
         setFormState({ correctUsername, correctPassword, matchPassword });
         if (correctUsername && correctPassword && matchPassword) {
+            console.log('response');
             const response = await connectToRegister(registerForm);
+            
             if(response.status === 200) {
                 alert("Register successfully");
                 history.push('/login');

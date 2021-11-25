@@ -4,7 +4,7 @@ import { apiURL } from '../constant';
 export const AuthContext = createContext();
 
 const AuthContextProvider = (props) => {
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [userId, setUserId] = useState('');
     async function connectToRegister(registerForm) {
         try {
             const res = await axios.post(`${apiURL}/users/register`, registerForm);
@@ -17,6 +17,7 @@ const AuthContextProvider = (props) => {
     async function connectToLogin(loginForm) {
         try {
             const res = await axios.post(`${apiURL}/users/login`, loginForm);
+            console.log(res);
             return res;
         } catch (error) {
             return error.message;
@@ -26,8 +27,8 @@ const AuthContextProvider = (props) => {
     const AuthContextData = {
         connectToRegister,
         connectToLogin,
-        isAuthenticated,
-        setIsAuthenticated,
+        setUserId,
+        userId,
     }
 
     return (
